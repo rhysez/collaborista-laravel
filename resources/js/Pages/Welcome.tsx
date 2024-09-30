@@ -2,6 +2,7 @@ import {PageProps} from '@/types';
 import {Head, Link} from '@inertiajs/react';
 import {ModeToggle} from "@/Components/mode-toggle";
 import {ThemeProvider} from "@/Components/theme-provider";
+import {Button} from "@/Components/ui/button";
 
 export default function Welcome({
                                     auth,
@@ -24,35 +25,39 @@ export default function Welcome({
             <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
                 <Head title="Welcome"/>
                 <div className="bg-background text-primary">
-                    <nav className="flex flex-1 justify-end">
+                    <nav className="flex flex-1 justify-between items-center py-4 px-8">
+                        <h1 className={"text-4xl font-semibold"}>Collaborista</h1>
                         {auth.user ? (
-                            <Link
-                                href={route('dashboard')}
-                                className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Dashboard
-                            </Link>
+                            <div className={"flex items-center"}>
+                                <Link
+                                    href={route('dashboard')}
+                                    className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                >
+                                    <Button>Dashboard</Button>
+                                </Link>
+                                <ModeToggle />
+                            </div>
                         ) : (
-                            <>
+                            <div className={"flex items-center text-xl"}>
                                 <Link
                                     href={route('login')}
                                     className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                 >
-                                    Log in
+                                    <Button>Log in</Button>
                                 </Link>
                                 <Link
                                     href={route('register')}
                                     className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                 >
-                                    Register
+                                    <Button>Sign up</Button>
                                 </Link>
-                            </>
+                                <ModeToggle />
+                            </div>
                         )}
-                        <ModeToggle />
                     </nav>
 
-                    <main className="mt-6">
-                        <p className={"text-center"}>This page is currently still in progress...</p>
+                    <main>
+                        <h2 className={"text-center text-5xl font-extrabold mt-16"}>Caffeinating your creator network.</h2>
                     </main>
                 </div>
             </ThemeProvider>
