@@ -12,6 +12,9 @@ export default {
     ],
 
     theme: {
+        fontFamily: {
+            'primary': ['Outfit', 'Inter', 'sans-serif', 'system-ui']
+        },
     	extend: {
     		fontFamily: {
     			sans: ['Figtree', ...defaultTheme.fontFamily.sans]
