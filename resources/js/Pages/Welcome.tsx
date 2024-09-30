@@ -22,9 +22,9 @@ export default function Welcome({
 
     return (
         <>
-            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
                 <Head title="Welcome"/>
-                <div className="bg-background text-primary">
+                <div className="bg-white dark:bg-black text-primary">
                     <nav className="flex flex-1 justify-between items-center py-4 px-8">
                         <h1 className={"text-4xl font-semibold"}>Collaborista</h1>
                         {auth.user ? (
@@ -57,7 +57,7 @@ export default function Welcome({
                     </nav>
 
                     <main>
-                        <h2 className={"text-center text-5xl font-extrabold mt-16"}>Caffeinating your creator network.</h2>
+                        <h2 className={"text-center text-5xl font-bold mt-20"}>Caffeinating your creator network.</h2>
                     </main>
                 </div>
             </ThemeProvider>
