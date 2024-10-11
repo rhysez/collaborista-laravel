@@ -4,7 +4,7 @@ import {ModeToggle} from "@/Components/mode-toggle";
 import {ThemeProvider} from "@/Components/theme-provider";
 import {Button} from "@/Components/ui/button";
 
-export default function Welcome({
+export default function Landing({
                                     auth,
                                     laravelVersion,
                                     phpVersion,
@@ -23,10 +23,10 @@ export default function Welcome({
     return (
         <>
             <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-                <Head title="Welcome"/>
+                <Head title="Landing"/>
                 <div className="bg-white dark:bg-black text-primary">
                     <nav className="flex flex-1 justify-between items-center py-4 px-8">
-                        <h1 className={"text-4xl font-semibold"}>Collaborista</h1>
+                        <h1 className={"text-3xl font-semibold"}>Collaborista</h1>
                         {auth.user ? (
                             <div className={"flex items-center"}>
                                 <Link
@@ -57,7 +57,12 @@ export default function Welcome({
                     </nav>
 
                     <main>
-                        <h2 className={"text-center text-5xl font-bold mt-20"}>Caffeinating your creator network.</h2>
+                        <article className={"space-y-4"}>
+                            <h2 className={"text-center text-5xl font-bold mt-20"}>Caffeinating your creator
+                                network ☕</h2>
+                            <p className={"text-center text-lg text-wrap opacity-75 max-w-[700px] mx-auto"}>Supercharge your growth by seemlessly discovering, connecting and
+                                engaging with other creators within your target niche.</p>
+                        </article>
                     </main>
                 </div>
             </ThemeProvider>
