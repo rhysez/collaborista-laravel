@@ -69,7 +69,7 @@ export default function Landing({
                                 </p>
                             </section>
                             <Link href={route('register')}>
-                                <Button className={"text-xl px-6 py-5 rounded-full transition-all ease-in-out hover:bg-green-400"}>
+                                <Button className={"text-xl px-6 py-5 rounded-full transition-all ease-in-out hover:bg-amber-500"}>
                                     Get started for free
                                 </Button>
                             </Link>

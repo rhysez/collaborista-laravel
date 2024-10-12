@@ -4,8 +4,8 @@ export default function Connect() {
     return (
         <section className={"space-y-12"}>
             <h2 className={"font-bold text-center text-5xl text-background"}>Connect</h2>
-            <section className={"flex flex-col shadow rounded-lg mx-auto p-8"}>
-                <div className={"flex md:flex-row-reverse flex-col items-center justify-evenly lg:justify-center lg:gap-24"}>
+            <section className={"flex flex-col rounded-lg mx-auto p-8"}>
+                <div className={"flex md:flex-row-reverse flex-col items-center justify-evenly lg:justify-center lg:gap-24 rotate-[-8deg]"}>
                     <div className={"p-44 text-foreground bg-background rounded-md"}>
                         Image goes here
                     </div>
