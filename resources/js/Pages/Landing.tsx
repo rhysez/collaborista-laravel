@@ -25,7 +25,7 @@ export default function Landing({
         <>
             <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
                 <Head title="Landing"/>
-                <div className="bg-white dark:bg-black text-primary p-4">
+                <div className="bg-white dark:bg-black text-primary">
                     <nav className="flex md:flex-row flex-col md:gap-0 gap-2 justify-between items-center py-4 px-8">
                         <h1 className={"text-3xl font-semibold"}>Collaborista</h1>
                         {auth.user ? (
