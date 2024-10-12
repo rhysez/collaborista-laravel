@@ -3,6 +3,7 @@ import {Head, Link} from '@inertiajs/react';
 import {ModeToggle} from "@/Components/mode-toggle";
 import {ThemeProvider} from "@/Components/theme-provider";
 import {Button} from "@/Components/ui/button";
+import Overview from "@/Components/landing/Overview";
 
 export default function Landing({
                                     auth,
@@ -56,10 +57,10 @@ export default function Landing({
                         )}
                     </nav>
 
-                    <main>
+                    <main className={"mt-20"}>
                         <article className={"flex flex-col items-center space-y-8"}>
                             <section className={"flex flex-col items-center space-y-2"}>
-                                <h2 className={"text-center text-5xl font-bold mt-20"}>
+                                <h2 className={"text-center text-6xl font-bold mt-20"}>
                                     Caffeinating your creator network ☕
                                 </h2>
                                 <p className={"text-center text-lg text-wrap opacity-75 max-w-[700px]"}>
@@ -68,12 +69,13 @@ export default function Landing({
                                 </p>
                             </section>
                             <Link href={route('register')}>
-                                <Button className={"text-xl font-bold p-6 rounded-full transition-all ease-in-out hover:bg-green-400 hover:text-white"}>
-                                    Get started
+                                <Button className={"text-xl px-6 py-5 rounded-full transition-all ease-in-out hover:bg-green-400"}>
+                                    Get started for free
                                 </Button>
                             </Link>
                         </article>
                     </main>
+                    <Overview />
                 </div>
             </ThemeProvider>
         </>
