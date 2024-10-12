@@ -25,7 +25,7 @@ export default function Landing({
         <>
             <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
                 <Head title="Landing"/>
-                <div className="bg-white dark:bg-black text-primary">
+                <div className="bg-background text-foreground">
                     <nav className="flex md:flex-row flex-col md:gap-0 gap-2 justify-between items-center py-4 px-8">
                         <h1 className={"text-3xl font-semibold"}>Collaborista</h1>
                         {auth.user ? (
@@ -69,7 +69,7 @@ export default function Landing({
                                 </p>
                             </section>
                             <Link href={route('register')}>
-                                <Button className={"text-xl px-6 py-5 rounded-full transition-all ease-in-out hover:bg-amber-500"}>
+                                <Button className={"text-xl px-6 py-5 rounded-full transition-all ease-in-out hover:bg-manuka"}>
                                     Get started for free
                                 </Button>
                             </Link>
