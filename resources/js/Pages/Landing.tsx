@@ -3,6 +3,7 @@ import {Head, Link} from '@inertiajs/react';
 import {ModeToggle} from "@/Components/mode-toggle";
 import {ThemeProvider} from "@/Components/theme-provider";
 import {Button} from "@/Components/ui/button";
+import Overview from "@/Components/landing/Overview";
 
 export default function Landing({
                                     auth,
@@ -24,7 +25,7 @@ export default function Landing({
         <>
             <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
                 <Head title="Landing"/>
-                <div className="bg-white dark:bg-black text-primary">
+                <div className="bg-white dark:bg-black text-primary p-4">
                     <nav className="flex md:flex-row flex-col md:gap-0 gap-2 justify-between items-center py-4 px-8">
                         <h1 className={"text-3xl font-semibold"}>Collaborista</h1>
                         {auth.user ? (
@@ -56,10 +57,10 @@ export default function Landing({
                         )}
                     </nav>
 
-                    <main>
+                    <main className={"mt-20"}>
                         <article className={"flex flex-col items-center space-y-8"}>
                             <section className={"flex flex-col items-center space-y-2"}>
-                                <h2 className={"text-center text-5xl font-bold mt-20"}>
+                                <h2 className={"text-center text-6xl font-bold mt-20"}>
                                     Caffeinating your creator network ☕
                                 </h2>
                                 <p className={"text-center text-lg text-wrap opacity-75 max-w-[700px]"}>
@@ -74,6 +75,7 @@ export default function Landing({
                             </Link>
                         </article>
                     </main>
+                    <Overview />
                 </div>
             </ThemeProvider>
         </>
