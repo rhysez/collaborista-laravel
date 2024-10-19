@@ -19,11 +19,11 @@ export default function Authenticated({
     return (
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
             <div className="min-h-screen bg-background">
-                <nav className=" bg-zinc-100 dark:bg-zinc-900">
+                <nav className="bg-background pt-4">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="flex h-16 justify-between">
                             <div className="flex">
-                                <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <div className="hidden space-x-8 sm:flex py-4">
                                     <NavLink
                                         href={route('dashboard')}
                                         active={route().current('dashboard')}
@@ -33,29 +33,16 @@ export default function Authenticated({
                                 </div>
                             </div>
 
-                            <div className="hidden sm:ms-6 sm:flex sm:items-center">
+                            <div className="hidden sm:ms-6 sm:flex sm:items-center space-x-4">
                                 <div className="relative ms-3">
                                     <Dropdown>
                                         <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-300"
+                                                className="inline-flex items-center rounded-full px-3 py-2 bg-foreground text-background text-md font-bold leading-4 transition duration-150 ease-in-out"
                                             >
                                                 {user.name}
-
-                                                <svg
-                                                    className="-me-0.5 ms-2 h-4 w-4"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20"
-                                                    fill="currentColor"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
                                             </button>
                                         </span>
                                         </Dropdown.Trigger>
