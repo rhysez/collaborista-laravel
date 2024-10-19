@@ -22,9 +22,11 @@ export default {
     			sm: 'calc(var(--radius) - 4px)'
     		},
     		colors: {
+                // brand colors
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
                 manuka: 'hsl(var(--manuka))',
+                // shadcn colors
     			card: {
     				DEFAULT: 'hsl(var(--card))',
     				foreground: 'hsl(var(--card-foreground))'
