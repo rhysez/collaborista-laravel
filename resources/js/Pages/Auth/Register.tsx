@@ -25,7 +25,12 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="Register"/>
+
+            <section className={"mt-4 mb-8"}>
+                <h1 className={"text-primary text-center font-bold text-5xl"}>Collaborista</h1>
+                <p className={"text-primary text-center font-extralight text-2xl"}>Join as a creator</p>
+            </section>
 
             <form onSubmit={submit}>
                 <div>
