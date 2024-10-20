@@ -11,7 +11,6 @@ import {ToggleGroup, ToggleGroupItem} from "@/Components/ui/toggle-group"
 export default function Register() {
     type FormContent = "Account" | "Platform" | "Personal";
     const [content, setContent] = useState<FormContent>("Account");
-
     const {data, setData, post, processing, errors, reset} = useForm({
         name: '',
         username: '',
@@ -19,6 +18,7 @@ export default function Register() {
         password: '',
         password_confirmation: '',
         platforms: [],
+        tags: [],
     });
 
     const submit: FormEventHandler = (e) => {
@@ -28,6 +28,13 @@ export default function Register() {
             onFinish: () => reset('password', 'password_confirmation'),
         });
     };
+
+    const tags: string[] = [
+        "vlogging",
+        "blogging",
+        "beauty",
+        "podcasting",
+    ];
 
     console.log(data);
 
@@ -153,6 +160,7 @@ export default function Register() {
                 </> : content == "Platform" ?
                 <>
                     <InputLabel htmlFor="platforms" value="Which platforms do you create content for?"/>
+                    <p className={"text-sm opacity-75"}>Select at least one option</p>
                     <ToggleGroup
                         variant={"outline"}
                         type="multiple"
@@ -191,6 +199,25 @@ export default function Register() {
                             value="linkedin"
                         >
                             LinkedIn
+                        </ToggleGroupItem>
+                    </ToggleGroup>
+
+                    <InputLabel className={"mt-4"} htmlFor="tags" value="Pick some tags to describe your content"/>
+                    <p className={"text-sm opacity-75"}>Select at least one option</p>
+                    <ToggleGroup
+                        variant={"outline"}
+                        type="multiple"
+                        className={"mt-4"}
+                        onValueChange={(value: any) => {
+                            if (value) setData('tags', value);
+                        }}
+                    >
+                        <ToggleGroupItem
+                            className={"font-bold radix-state-on:bg-manuka radix-state-on:text-white"}
+                            value="vlogging"
+
+                        >
+                            vlogging
                         </ToggleGroupItem>
                     </ToggleGroup>
                 </> : <p>Personal</p>
