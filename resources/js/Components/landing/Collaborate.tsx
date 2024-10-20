@@ -5,7 +5,7 @@ export default function Collaborate() {
         <section className={"space-y-12"}>
             <h2 className={"font-bold text-center text-5xl text-background"}>Collaborate</h2>
             <section className={"flex flex-col rounded-lg p-8 mx-auto"}>
-                <div className={"flex md:flex-row flex-col items-center justify-evenly lg:justify-center lg:gap-24 rotate-[8deg]"}>
+                <div className={"flex md:flex-row flex-col items-center justify-evenly lg:justify-center lg:gap-24"}>
                     <div className={"p-44 text-foreground bg-background rounded-md"}>
                         Image goes here
                     </div>
