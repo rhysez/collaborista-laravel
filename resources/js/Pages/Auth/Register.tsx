@@ -6,11 +6,10 @@ import {Head, Link, useForm} from '@inertiajs/react';
 import {FormEventHandler, useState} from 'react';
 import {Button} from "@/Components/ui/button";
 import {ToggleGroup, ToggleGroupItem} from "@/Components/ui/toggle-group"
+import PrimaryButton from "@/Components/PrimaryButton";
 
 
 export default function Register() {
-    type FormContent = "Account" | "Platform" | "Personal";
-    const [content, setContent] = useState<FormContent>("Account");
     const {data, setData, post, processing, errors, reset} = useForm({
         name: '',
         username: '',
@@ -18,7 +17,6 @@ export default function Register() {
         password: '',
         password_confirmation: '',
         platforms: [],
-        tags: [],
     });
 
     const submit: FormEventHandler = (e) => {
@@ -29,35 +27,12 @@ export default function Register() {
         });
     };
 
-    type Platform = { name: string, display_name: string, color: string };
-
-    const platforms: Platform[] = [
-        {name: "youtube", display_name: "YouTube", color: "#dc2626"},
-        {name: "instagram", display_name: "Instagram", color: "#d946ef"},
-        {name: "twitch", display_name: "Twitch", color: "#7c3aed"},
-        {name: "tiktok", display_name: "TikTok", color: "#f8fafc"},
-        {name: "linkedin", display_name: "LinkedIn", color: "#2563eb"},
-    ]
-
-    const PlatformOptionsUI = platforms.map((platform: Platform) => {
-        return (
-            <ToggleGroupItem
-                className={`font-bold radix-state-on:bg-[${platform.color}] radix-state-on:text-white`}
-                value={platform.name}
-                key={platform.name}
-
-            >
-                {platform.display_name}
-            </ToggleGroupItem>
-        )
-    })
-
-    const tags: string[] = [
-        "vlogging",
-        "blogging",
-        "beauty",
-        "podcasting",
-    ];
+    const canPaginate: number =
+        data.name.length &&
+        data.username.length &&
+        data.email.length &&
+        data.password.length &&
+        data.password_confirmation.length
 
     console.log(data);
 
@@ -71,8 +46,6 @@ export default function Register() {
             </section>
 
             <form onSubmit={submit}>
-                {
-                content == "Account" ?
                 <>
                     <div>
                         <InputLabel htmlFor="name" value="Name (can be first name, or full name)"/>
@@ -165,25 +138,10 @@ export default function Register() {
                         />
                     </div>
 
-                    <div className="mt-4 flex items-center justify-end">
-                        <Link
-                            href={route('login')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-                        >
-                            Already registered?
-                        </Link>
-
-                        <Button onClick={() => setContent("Platform")}
-                                className={"rounded-full hover:bg-manuka ml-4"}>Next</Button>
-                        {/*Add this submit button to final form*/}
-                        {/*<PrimaryButton className="ms-4" disabled={processing}>*/}
-                        {/*    Register*/}
-                        {/*</PrimaryButton>*/}
-                    </div>
-                </> : content == "Platform" ?
-                <>
-                    <InputLabel htmlFor="platforms" value="Which platforms do you create content for?"/>
+                    <InputLabel className={"text-lg mt-6"} htmlFor="platforms"
+                                value="Which platforms do you create content for?"/>
                     <p className={"text-sm opacity-75"}>Select at least one option</p>
+
                     <ToggleGroup
                         variant={"outline"}
                         type="multiple"
@@ -225,26 +183,18 @@ export default function Register() {
                         </ToggleGroupItem>
                     </ToggleGroup>
 
-                    <InputLabel className={"mt-4"} htmlFor="tags" value="Pick some tags to describe your content"/>
-                    <p className={"text-sm opacity-75"}>Select at least one option</p>
-                    <ToggleGroup
-                        variant={"outline"}
-                        type="multiple"
-                        className={"mt-4"}
-                        onValueChange={(value: any) => {
-                            if (value) setData('tags', value);
-                        }}
-                    >
-                        <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-manuka radix-state-on:text-white"}
-                            value="vlogging"
-
+                    <div className="mt-6 flex items-center justify-end">
+                        <Link
+                            href={route('login')}
+                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
                         >
-                            vlogging
-                        </ToggleGroupItem>
-                    </ToggleGroup>
-                </> : <p>Personal</p>
-            }
+                            Already registered?
+                        </Link>
+                        <PrimaryButton className="ms-4" disabled={processing}>
+                            Register
+                        </PrimaryButton>
+                    </div>
+                </>
             </form>
         </GuestLayout>
     );
