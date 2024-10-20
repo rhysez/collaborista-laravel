@@ -13,9 +13,12 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
+    public function get() {
+        return Inertia::render('Profile/Profile', [
+            'user' => Auth::user(),
+        ]);
+    }
+
     public function edit(Request $request): Response
     {
         return Inertia::render('Profile/Edit', [
