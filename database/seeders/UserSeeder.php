@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Test User',
             'username' => 'testuser',
             'email' => 'test@example.com',
-            'bio' => 'Hello! I am a test user for Collaborista'
+            'bio' => 'Hello! I am a test user for Collaborista',
         ]);
 
         // Additional test users

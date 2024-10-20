@@ -1,4 +1,3 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
@@ -6,6 +5,7 @@ import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 import {ThemeProvider} from "@/Components/theme-provider";
 import {ModeToggle} from "@/Components/mode-toggle";
+import {UserCircleIcon} from "@heroicons/react/24/outline";
 
 export default function Authenticated({
     header,
@@ -25,10 +25,10 @@ export default function Authenticated({
                             <div className="flex">
                                 <div className="hidden space-x-8 sm:flex py-4">
                                     <NavLink
-                                        href={route('dashboard')}
-                                        active={route().current('dashboard')}
+                                        href={route('home')}
+                                        active={route().current('home')}
                                     >
-                                        Dashboard
+                                        Home
                                     </NavLink>
                                 </div>
                             </div>
@@ -37,21 +37,27 @@ export default function Authenticated({
                                 <div className="relative ms-3">
                                     <Dropdown>
                                         <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
+                                        <div className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center rounded-full px-3 py-2 bg-foreground text-background text-md font-bold leading-4 transition duration-150 ease-in-out"
+                                                className="inline-flex items-center rounded-full px-5 py-2 text-foreground text-sm font-bold leading-4 transition duration-150 ease-in-out"
                                             >
-                                                {user.name}
+                                                <UserCircleIcon className={"w-8 h-8"} />
                                             </button>
-                                        </span>
+                                        </div>
                                         </Dropdown.Trigger>
 
                                         <Dropdown.Content>
+                                            <p className={"text-background font-bold text-2xl px-4 py-2"}>{user.username}</p>
+                                            <Dropdown.Link
+                                                href={route('profile.get')}
+                                            >
+                                                Profile
+                                            </Dropdown.Link>
                                             <Dropdown.Link
                                                 href={route('profile.edit')}
                                             >
-                                                Profile
+                                                My Settings
                                             </Dropdown.Link>
                                             <Dropdown.Link
                                                 href={route('logout')}
@@ -117,10 +123,10 @@ export default function Authenticated({
                     >
                         <div className="space-y-1 pb-3 pt-2">
                             <ResponsiveNavLink
-                                href={route('dashboard')}
-                                active={route().current('dashboard')}
+                                href={route('home')}
+                                active={route().current('home')}
                             >
-                                Dashboard
+                                Home
                             </ResponsiveNavLink>
                         </div>
 

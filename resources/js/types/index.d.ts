@@ -3,8 +3,11 @@ import { Config } from 'ziggy-js';
 export interface User {
     id: number;
     name: string;
+    username: string;
+    bio: string;
     email: string;
     email_verified_at?: string;
+    platforms: string[]
 }
 
 export type PageProps<
