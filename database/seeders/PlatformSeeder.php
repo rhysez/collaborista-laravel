@@ -13,6 +13,34 @@ class PlatformSeeder extends Seeder
      */
     public function run(): void
     {
-        Platform::factory()->createOne();
+        Platform::factory()->create([
+            'name' => 'youtube',
+            'display_name' => 'YouTube',
+            'color' => '#dc2626'
+        ]);
+
+        Platform::factory()->create([
+            'name' => 'instagram',
+            'display_name' => 'Instagram',
+            'color' => '#d946ef',
+        ]);
+
+        Platform::factory()->create([
+            'name' => 'twitch',
+            'display_name' => 'Twitch',
+            'color' => '#7c3aed',
+        ]);
+
+        Platform::factory()->create([
+            'name' => 'tiktok',
+            'display_name' => 'TikTok',
+            'color' => '#f8fafc',
+        ]);
+
+        Platform::factory()->create([
+            'name' => 'linkedin',
+            'display_name' => 'LinkedIn',
+            'color' => '#2563eb',
+        ]);
     }
 }

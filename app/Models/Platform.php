@@ -12,5 +12,6 @@ class Platform extends Model
     protected $fillable = [
         'name',
         'display_name',
+        'color'
     ];
 }

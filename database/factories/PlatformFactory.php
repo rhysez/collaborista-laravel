@@ -17,8 +17,9 @@ class PlatformFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => 'youtube',
-            'display_name' => 'YouTube',
+            'name' => fake()->name(),
+            'display_name' => fake()->name(),
+            'color' => '#4287f5',
         ];
     }
 }
