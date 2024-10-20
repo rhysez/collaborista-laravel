@@ -29,6 +29,29 @@ export default function Register() {
         });
     };
 
+    type Platform = { name: string, display_name: string, color: string };
+
+    const platforms: Platform[] = [
+        {name: "youtube", display_name: "YouTube", color: "#dc2626"},
+        {name: "instagram", display_name: "Instagram", color: "#d946ef"},
+        {name: "twitch", display_name: "Twitch", color: "#7c3aed"},
+        {name: "tiktok", display_name: "TikTok", color: "#f8fafc"},
+        {name: "linkedin", display_name: "LinkedIn", color: "#2563eb"},
+    ]
+
+    const PlatformOptionsUI = platforms.map((platform: Platform) => {
+        return (
+            <ToggleGroupItem
+                className={`font-bold radix-state-on:bg-[${platform.color}] radix-state-on:text-white`}
+                value={platform.name}
+                key={platform.name}
+
+            >
+                {platform.display_name}
+            </ToggleGroupItem>
+        )
+    })
+
     const tags: string[] = [
         "vlogging",
         "blogging",
@@ -177,7 +200,7 @@ export default function Register() {
                             YouTube
                         </ToggleGroupItem>
                         <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-pink-600 radix-state-on:text-white"}
+                            className={"font-bold radix-state-on:bg-fuchsia-500 radix-state-on:text-white"}
                             value="instagram"
                         >
                             Instagram
@@ -195,7 +218,7 @@ export default function Register() {
                             TikTok
                         </ToggleGroupItem>
                         <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-blue-700 radix-state-on:text-white"}
+                            className={"font-bold radix-state-on:bg-blue-600 radix-state-on:text-white"}
                             value="linkedin"
                         >
                             LinkedIn
