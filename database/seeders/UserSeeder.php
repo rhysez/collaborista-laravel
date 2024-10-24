@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'username' => 'testuser',
             'email' => 'test@example.com',
             'bio' => 'Hello! I am a test user for Collaborista',
-            'platforms' => [$platform->id]
+            'platform_ids' => [$platform->id]
         ]);
 
         // Additional test users
