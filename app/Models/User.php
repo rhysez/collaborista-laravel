@@ -29,7 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'bio',
-        'platforms'
+        'platform_ids'
     ];
 
     /**
