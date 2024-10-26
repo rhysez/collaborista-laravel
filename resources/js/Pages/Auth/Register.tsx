@@ -9,7 +9,6 @@ import {ToggleGroup, ToggleGroupItem} from "@/Components/ui/toggle-group"
 import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function Register({platforms}: {platforms: any[]}) {
-    console.log("PLATFORMS ", platforms);
 
     const {data, setData, post, processing, errors, reset} = useForm({
         name: '',
@@ -17,8 +16,20 @@ export default function Register({platforms}: {platforms: any[]}) {
         email: '',
         password: '',
         password_confirmation: '',
-        platforms: [],
+        platform_ids: [],
     });
+
+    console.log(data);
+    const PlatformToggleButtons = () =>
+        platforms.map((platform: any, index: number) => {
+            return (
+                <ToggleGroupItem
+                    className={"font-bold radix-state-on:bg-red-600 radix-state-on:text-white"}
+                    value={platform.id}
+                    key={index}
+                >{platform.display_name}</ToggleGroupItem>
+            )
+    })
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -139,40 +150,10 @@ export default function Register({platforms}: {platforms: any[]}) {
                         type="multiple"
                         className={"mt-4"}
                         onValueChange={(value: any) => {
-                            if (value) setData('platforms', value);
+                            if (value) setData('platform_ids', value);
                         }}
                     >
-                        <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-red-600 radix-state-on:text-white"}
-                            value="youtube"
-
-                        >
-                            YouTube
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-fuchsia-500 radix-state-on:text-white"}
-                            value="instagram"
-                        >
-                            Instagram
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-purple-600 radix-state-on:text-white"}
-                            value="twitch"
-                        >
-                            Twitch
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-foreground radix-state-on:text-background"}
-                            value="tiktok"
-                        >
-                            TikTok
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            className={"font-bold radix-state-on:bg-blue-600 radix-state-on:text-white"}
-                            value="linkedin"
-                        >
-                            LinkedIn
-                        </ToggleGroupItem>
+                      <PlatformToggleButtons />
                     </ToggleGroup>
 
                     <div className="mt-6 flex items-center justify-end">
