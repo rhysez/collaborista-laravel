@@ -9,8 +9,7 @@ export default function Landing({
                                     auth,
                                     laravelVersion,
                                     phpVersion,
-                                    platforms,
-                                }: PageProps<{ laravelVersion: string; phpVersion: string, platforms: any }>) {
+                                }: PageProps<{ laravelVersion: string; phpVersion: string }>) {
     const handleImageError = () => {
         document
             .getElementById('screenshot-container')
@@ -21,8 +20,6 @@ export default function Landing({
             ?.classList.add('!flex-row');
         document.getElementById('background')?.classList.add('!hidden');
     };
-
-    console.log("PLATFORMS:", platforms)
 
     return (
         <>

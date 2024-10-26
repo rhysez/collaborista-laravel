@@ -8,8 +8,9 @@ import {Button} from "@/Components/ui/button";
 import {ToggleGroup, ToggleGroupItem} from "@/Components/ui/toggle-group"
 import PrimaryButton from "@/Components/PrimaryButton";
 
+export default function Register({platforms}: {platforms: any[]}) {
+    console.log("PLATFORMS ", platforms);
 
-export default function Register() {
     const {data, setData, post, processing, errors, reset} = useForm({
         name: '',
         username: '',
@@ -26,15 +27,6 @@ export default function Register() {
             onFinish: () => reset('password', 'password_confirmation'),
         });
     };
-
-    const canPaginate: number =
-        data.name.length &&
-        data.username.length &&
-        data.email.length &&
-        data.password.length &&
-        data.password_confirmation.length
-
-    console.log(data);
 
     return (
         <GuestLayout>
