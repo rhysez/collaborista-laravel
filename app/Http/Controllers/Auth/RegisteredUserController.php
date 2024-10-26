@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Platform;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Support\Facades\Log;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +22,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'platforms' => Platform::all(),
+        ]);
     }
 
     /**
@@ -35,7 +39,7 @@ class RegisteredUserController extends Controller
             'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'platforms' => ['required', 'array'],
+            'platform_ids' => ['required', 'array'],
         ]);
 
         $user = User::create([
@@ -43,7 +47,7 @@ class RegisteredUserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'platforms' => $request->platforms
+            'platform_ids' => $request->platform_ids
         ]);
 
         event(new Registered($user));
