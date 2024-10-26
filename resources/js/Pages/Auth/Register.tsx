@@ -24,7 +24,7 @@ export default function Register({platforms}: {platforms: any[]}) {
         platforms.map((platform: any, index: number) => {
             return (
                 <ToggleGroupItem
-                    className={"font-bold radix-state-on:bg-red-600 radix-state-on:text-white"}
+                    className={`font-bold transition-all ease-in-out duration-100 radix-state-on:border-manuka`}
                     value={platform.id}
                     key={index}
                 >{platform.display_name}</ToggleGroupItem>
@@ -148,7 +148,7 @@ export default function Register({platforms}: {platforms: any[]}) {
                     <ToggleGroup
                         variant={"outline"}
                         type="multiple"
-                        className={"mt-4"}
+                        className={"mt-4 grid gap-2 grid-cols-2"}
                         onValueChange={(value: any) => {
                             if (value) setData('platform_ids', value);
                         }}

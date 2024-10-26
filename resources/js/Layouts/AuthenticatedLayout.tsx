@@ -19,7 +19,7 @@ export default function Authenticated({
     return (
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
             <div className="min-h-screen bg-background">
-                <nav className="bg-background pt-4">
+                <nav className="bg-zinc-100 dark:bg-zinc-900 border-b-[1px] border-zinc-200 dark:border-zinc-800 pt-4">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="flex h-16 justify-between">
                             <div className="flex">
