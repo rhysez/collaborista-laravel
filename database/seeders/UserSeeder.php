@@ -26,6 +26,8 @@ class UserSeeder extends Seeder
         ]);
 
         // Additional test users
-        User::factory()->count(2)->create();
+        User::factory()->count(2)->create([
+            'platform_ids' => [$platform->id]
+        ]);
     }
 }
