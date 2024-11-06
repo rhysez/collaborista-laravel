@@ -5,6 +5,8 @@ import {ThemeProvider} from "@/Components/theme-provider";
 import {Button} from "@/Components/ui/button";
 import Overview from "@/Components/landing/Overview";
 
+
+// dummy comment
 export default function Landing({
                                     auth,
                                     laravelVersion,
