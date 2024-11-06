@@ -10,7 +10,7 @@ export default function NavLink({
         <Link
             {...props}
             className={
-                'inline-flex items-center text-foreground rounded-full px-3 lg:text-2xl text-xl leading-5 transition-all focus:outline-none ' +
+                'inline-flex items-center text-foreground rounded-full px-3 text-xl leading-5 transition-all ' +
                 (active
                     ? 'font-bold'
                     : 'font-normal') +

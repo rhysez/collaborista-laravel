@@ -1,11 +1,12 @@
-import Dropdown from '@/Components/Dropdown';
-import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link, usePage } from '@inertiajs/react';
-import { PropsWithChildren, ReactNode, useState } from 'react';
-import {ThemeProvider} from "@/Components/theme-provider";
-import {ModeToggle} from "@/Components/mode-toggle";
-import {UserCircleIcon} from "@heroicons/react/24/outline";
+import Dropdown from "@/Components/Dropdown";
+import NavLink from "@/Components/NavLink";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import { Link, usePage } from "@inertiajs/react";
+import { PropsWithChildren, ReactNode, useState } from "react";
+import { ThemeProvider } from "@/Components/theme-provider";
+import { ModeToggle } from "@/Components/mode-toggle";
+import { UserCircleIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Authenticated({
     header,
@@ -21,46 +22,64 @@ export default function Authenticated({
             <div className="min-h-screen bg-background">
                 <nav className="bg-zinc-100 dark:bg-zinc-900 border-b-[1px] border-zinc-200 dark:border-zinc-800 pt-4">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div className="flex h-16 justify-between">
+                        <div className="flex h-16 justify-between items-center">
+                            <h1 className={"text-xl font-semibold"}>
+                                Collaborista
+                            </h1>
                             <div className="flex">
                                 <div className="hidden space-x-8 sm:flex py-4">
                                     <NavLink
-                                        href={route('home')}
-                                        active={route().current('home')}
+                                        href={route("home")}
+                                        active={route().current("home")}
                                     >
-                                        Home
+                                        Feed
                                     </NavLink>
                                 </div>
                             </div>
 
                             <div className="hidden sm:ms-6 sm:flex sm:items-center space-x-4">
+                                <EnvelopeIcon className="w-8 h-8" />
                                 <div className="relative ms-3">
                                     <Dropdown>
                                         <Dropdown.Trigger>
-                                        <div className="inline-flex rounded-md">
-                                            <button
-                                                type="button"
-                                                className="inline-flex items-center rounded-full px-5 py-2 text-foreground text-sm font-bold leading-4 transition duration-150 ease-in-out"
-                                            >
-                                                <UserCircleIcon className={"w-8 h-8"} />
-                                            </button>
-                                        </div>
+                                            <div className="inline-flex rounded-md">
+                                                <button
+                                                    type="button"
+                                                    className="inline-flex items-center rounded-full px-5 py-2 text-foreground text-sm font-bold leading-4 transition duration-150 ease-in-out"
+                                                >
+                                                    <Avatar className="w-8 h-8">
+                                                        <AvatarImage
+                                                            src="https://github.com/shadcn.png"
+                                                            alt="@shadcn"
+                                                        />
+                                                        <AvatarFallback>
+                                                            CN
+                                                        </AvatarFallback>
+                                                    </Avatar>
+                                                </button>
+                                            </div>
                                         </Dropdown.Trigger>
 
                                         <Dropdown.Content>
-                                            <p className={"text-background font-bold text-2xl px-4 py-2"}>{user.username}</p>
+                                            <p
+                                                className={
+                                                    "text-background font-bold text-2xl px-4 py-2"
+                                                }
+                                            >
+                                                {user.username}
+                                            </p>
                                             <Dropdown.Link
-                                                href={route('profile.get')}
+                                                href={route("profile.get")}
                                             >
                                                 Profile
                                             </Dropdown.Link>
                                             <Dropdown.Link
-                                                href={route('profile.edit')}
+                                                href={route("profile.edit")}
                                             >
                                                 My Settings
                                             </Dropdown.Link>
                                             <Dropdown.Link
-                                                href={route('logout')}
+                                                href={route("logout")}
                                                 method="post"
                                                 as="button"
                                             >
@@ -90,8 +109,8 @@ export default function Authenticated({
                                         <path
                                             className={
                                                 !showingNavigationDropdown
-                                                    ? 'inline-flex'
-                                                    : 'hidden'
+                                                    ? "inline-flex"
+                                                    : "hidden"
                                             }
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -101,8 +120,8 @@ export default function Authenticated({
                                         <path
                                             className={
                                                 showingNavigationDropdown
-                                                    ? 'inline-flex'
-                                                    : 'hidden'
+                                                    ? "inline-flex"
+                                                    : "hidden"
                                             }
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -117,14 +136,14 @@ export default function Authenticated({
 
                     <div
                         className={
-                            (showingNavigationDropdown ? 'block' : 'hidden') +
-                            ' sm:hidden'
+                            (showingNavigationDropdown ? "block" : "hidden") +
+                            " sm:hidden"
                         }
                     >
                         <div className="space-y-1 pb-3 pt-2">
                             <ResponsiveNavLink
-                                href={route('home')}
-                                active={route().current('home')}
+                                href={route("home")}
+                                active={route().current("home")}
                             >
                                 Home
                             </ResponsiveNavLink>
@@ -141,12 +160,12 @@ export default function Authenticated({
                             </div>
 
                             <div className="mt-3 space-y-1">
-                                <ResponsiveNavLink href={route('profile.edit')}>
+                                <ResponsiveNavLink href={route("profile.edit")}>
                                     Profile
                                 </ResponsiveNavLink>
                                 <ResponsiveNavLink
                                     method="post"
-                                    href={route('logout')}
+                                    href={route("logout")}
                                     as="button"
                                 >
                                     Log Out
@@ -159,6 +178,5 @@ export default function Authenticated({
                 <main>{children}</main>
             </div>
         </ThemeProvider>
-
     );
 }

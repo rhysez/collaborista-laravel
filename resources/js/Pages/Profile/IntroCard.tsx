@@ -12,12 +12,18 @@ export default function IntroCard({ user }: { user: User }) {
                     />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <section className="flex flex-col justify-between">
+                <section className="flex flex-col justify-between space-y-4">
                     <section>
                         <h1 className="font-bold text-4xl">{user.name}</h1>
-                        <p className="text-lg">@{user.username}</p>
+                        <p className="text-lg text-manuka font-semibold">@{user.username}</p>
                     </section>
-                    <article>The user's bio will go here, blah blah blah</article>
+                    <article>
+                        The user's bio will go here, blah blah blah
+                    </article>
+                    <section>
+                        <h1 className="font-bold text-2xl">Platforms</h1>
+                        <p className="text-lg"></p>
+                    </section>
                 </section>
             </section>
         </main>
