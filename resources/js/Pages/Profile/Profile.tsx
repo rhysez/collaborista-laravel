@@ -1,7 +1,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { usePage } from "@inertiajs/react";
 import { User } from "@/types";
-import IntroCard from "@/Pages/Profile/IntroCard"
+import IntroCard from "@/Components/Profile/IntroCard"
 
 // This component should display a grid of 3 cards.
 // Each card reflecting a different segment of the profile.

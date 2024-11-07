@@ -1,6 +1,5 @@
 import { User } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 export default function IntroCard({ user }: { user: User }) {
     return (
         <main>
