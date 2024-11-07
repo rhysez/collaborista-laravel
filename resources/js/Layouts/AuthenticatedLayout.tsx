@@ -5,11 +5,15 @@ import { Link, usePage } from "@inertiajs/react";
 import { PropsWithChildren, ReactNode, useState } from "react";
 import { ThemeProvider } from "@/Components/theme-provider";
 import { ModeToggle } from "@/Components/mode-toggle";
-import { UserCircleIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import {
+    UserCircleIcon,
+    EnvelopeIcon,
+    Bars3Icon,
+} from "@heroicons/react/24/outline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import LayoutNav from "@/Components/navigation/LayoutNav";
 
 export default function Authenticated({
-    header,
     children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
@@ -21,11 +25,14 @@ export default function Authenticated({
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
             <div className="min-h-screen bg-background">
                 <nav className="bg-zinc-100 dark:bg-zinc-900 border-b-[1px] border-zinc-200 dark:border-zinc-800 pt-4">
-                    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex h-16 justify-between items-center">
-                            <h1 className={"text-xl font-semibold"}>
-                                Collaborista
-                            </h1>
+                            <div className="flex items-center gap-6">
+                                <LayoutNav />
+                                <h1 className={"text-xl font-semibold"}>
+                                    Collaborista
+                                </h1>
+                            </div>
                             <div className="flex">
                                 <div className="hidden space-x-8 sm:flex py-4">
                                     <NavLink
@@ -38,7 +45,7 @@ export default function Authenticated({
                             </div>
 
                             <div className="hidden sm:ms-6 sm:flex sm:items-center space-x-4">
-                                <EnvelopeIcon className="w-8 h-8" />
+                                <EnvelopeIcon className="w-6 h-6" />
                                 <div className="relative ms-3">
                                     <Dropdown>
                                         <Dropdown.Trigger>
