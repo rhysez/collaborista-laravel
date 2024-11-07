@@ -1,5 +1,7 @@
 import { Config } from 'ziggy-js';
 
+export type Platform = string | null;
+
 export interface User {
     id: number;
     name: string;
@@ -7,7 +9,10 @@ export interface User {
     bio: string;
     email: string;
     email_verified_at?: string;
-    platforms: string[]
+    youtube: Platform;
+    instagram: Platform;
+    twitch: Platform;
+    tiktok: Platform;
 }
 
 export type PageProps<

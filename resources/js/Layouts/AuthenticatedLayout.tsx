@@ -68,13 +68,6 @@ export default function Authenticated({
                                         </Dropdown.Trigger>
 
                                         <Dropdown.Content>
-                                            <p
-                                                className={
-                                                    "text-background font-bold text-2xl px-4 py-2"
-                                                }
-                                            >
-                                                {user.username}
-                                            </p>
                                             <Dropdown.Link
                                                 href={route("profile.get")}
                                             >

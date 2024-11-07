@@ -26,6 +26,10 @@ export default {
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
                 manuka: 'hsl(var(--manuka))',
+                youtube: '#991b1b',
+                instagram: '#a21caf',
+                twitch: '#7e22ce',
+
                 // shadcn colors
     			card: {
     				DEFAULT: 'hsl(var(--card))',

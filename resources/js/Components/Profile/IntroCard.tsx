@@ -1,6 +1,17 @@
-import { User } from "@/types";
+import { User, Platform } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {clsx} from "clsx";
+
+type IntroCardPlatform = {handle: Platform, platform: string}
+
 export default function IntroCard({ user }: { user: User }) {
+    const platformHandles: IntroCardPlatform[] = [
+        {handle: user.youtube, platform: "YouTube"},
+        {handle: user.instagram, platform: "Instagram"},
+        {handle: user.twitch, platform: "Twitch"},
+        {handle: user.tiktok, platform: "TikTok"}
+    ].filter((platform: IntroCardPlatform) => platform.handle);
+
     return (
         <main>
             <section className="flex space-x-4">
@@ -21,7 +32,22 @@ export default function IntroCard({ user }: { user: User }) {
                     </article>
                     <section>
                         <h1 className="font-bold text-2xl">Platforms</h1>
-                        <p className="text-lg"></p>
+                        <section className={"space-y-1 mt-2"}>
+                            {platformHandles.map((platform: IntroCardPlatform, index: number) => {
+                                return (
+                                    <div className={"flex items-center gap-1 bg-zinc-200 dark:bg-zinc-800 rounded-sm p-1"}>
+                                        <p className={
+                                            clsx("font-semibold p-1 rounded-sm text-white text-sm",
+                                                {"bg-youtube": platform.platform == "YouTube"},
+                                                {"bg-instagram": platform.platform == "Instagram"},
+                                                {"bg-twitch": platform.platform == "Twitch"},
+                                                {"bg-foreground": platform.platform == "TikTok"}
+                                            )}>{platform.platform}</p>
+                                        <p className={"text-sm"}> {platform.handle}</p>
+                                    </div>
+                                )
+                            })}
+                        </section>
                     </section>
                 </section>
             </section>
