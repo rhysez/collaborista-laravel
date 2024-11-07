@@ -43,6 +43,10 @@ class RegisteredUserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'youtube' => $request->youtube,
+            'instagram' => $request->instagram,
+            'twitch' => $request->twitch,
+            'tiktok' => $request->tiktok
         ]);
 
         event(new Registered($user));
