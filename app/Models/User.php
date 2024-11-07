@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Str;
 use phpseclib3\Math\BigInteger;
-use App\Models\Platform;
 
 class User extends Authenticatable
 {
@@ -30,12 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'bio',
-        'platform_ids'
     ];
-
-    public function platforms(){
-        return $this->hasMany(Platform::class);
-    }
 
     /**
      * The attributes that should be hidden for serialization.

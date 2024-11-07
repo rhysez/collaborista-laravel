@@ -19,7 +19,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('bio')->nullable();
-            $table->json('platform_ids')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
