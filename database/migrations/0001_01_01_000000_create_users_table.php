@@ -19,6 +19,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('bio')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitch')->nullable();
+            $table->string('tiktok')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

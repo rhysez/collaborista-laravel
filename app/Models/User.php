@@ -29,6 +29,10 @@ class User extends Authenticatable
         'email',
         'password',
         'bio',
+        'youtube',
+        'instagram',
+        'twitch',
+        'tiktok',
     ];
 
     /**

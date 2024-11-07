@@ -2,7 +2,7 @@ import {PageProps} from '@/types';
 import {Head, Link} from '@inertiajs/react';
 import {ModeToggle} from "@/Components/mode-toggle";
 import {ThemeProvider} from "@/Components/theme-provider";
-import {Button} from "@/Components/ui/button";
+import {Button} from "@/components/ui/button";
 import Overview from "@/Components/landing/Overview";
 
 

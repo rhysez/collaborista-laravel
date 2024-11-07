@@ -4,7 +4,7 @@ import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import {Head, Link, useForm} from '@inertiajs/react';
 import {FormEventHandler, useState} from 'react';
-import {Button} from "@/Components/ui/button";
+import {Button} from "@/components/ui/button";
 import PrimaryButton from "@/Components/PrimaryButton";
 
 export default function Register() {
@@ -19,7 +19,6 @@ export default function Register() {
         instagram: '',
         twitch: '',
         tiktok: '',
-        linkedin: '',
     });
     console.log(data);
 
@@ -35,7 +34,7 @@ export default function Register() {
         return (
             <>
                 <div>
-                    <h1 className={"font-bold text-2xl"}>Add platform links</h1>
+                    <h1 className={"font-bold text-2xl"}>Add platform handles</h1>
                     <p className={"text-sm opacity-75"}>Populate at least one platform</p>
                 </div>
                 <div className="mt-4">
@@ -90,20 +89,6 @@ export default function Register() {
                     />
 
                     <InputError message={errors.tiktok} className="mt-2"/>
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel style={{color: "#2563eb", fontWeight: "bold"}} htmlFor="linkedin" value="LinkedIn"/>
-
-                    <TextInput
-                        id="linkedin"
-                        name="linkedin"
-                        value={data.linkedin}
-                        className="mt-1 block w-full"
-                        onChange={(e) => setData('linkedin', e.target.value)}
-                    />
-
-                    <InputError message={errors.linkedin} className="mt-2"/>
                 </div>
 
                 <div className="mt-6 flex items-center justify-end">
